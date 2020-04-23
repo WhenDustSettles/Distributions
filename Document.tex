@@ -1,0 +1,197 @@
+\documentclass[12pt, a4paper, titlepage]{article}
+
+%\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{amsmath}
+% font size could be 10pt (default), 11pt or 12 pt
+% paper size coulde be letterpaper (default), legalpaper, executivepaper,
+% a4paper, a5paper or b5paper
+% side coulde be oneside (default) or twoside 
+% columns coulde be onecolumn (default) or twocolumn
+% graphics coulde be final (default) or draft 
+%
+% titlepage coulde be notitlepage (default) or titlepage which 
+% makes an extra page for title 
+% 
+% paper alignment coulde be portrait (default) or landscape 
+%
+% equations coulde be 
+%   default number of the equation on the rigth and equation centered 
+%   leqno number on the left and equation centered 
+%   fleqn number on the rigth and  equation on the left side
+%	
+\title{An Exhaustive (hopefully) list of Probability Distributions}
+\author{Animesh Renanse \\
+	Indian Institute of Technology Guwahati \\
+	}
+
+\date{\today} 
+% \date{\today} date coulde be today 
+% \date{25.12.00} or be a certain date
+% \date{ } or there is no date 
+\begin{document}
+% Hint: \title{what ever}, \author{who care} and \date{when ever} could stand 
+% before or after the \begin{document} command 
+% BUT the \maketitle command MUST come AFTER the \begin{document} command! 
+\maketitle
+\newpage
+
+%Each Distribution should have the following
+
+%It's Plot (2D/3D depending on the nature)
+%Notation 
+%Parameters
+%Support
+%PDF
+%CDF & it's derivation from PDF
+%Mean(Expectation) & it's derivation
+%Variance & it's derivation
+%Moment Generating Function & it's derivation
+%Entropy
+
+\section{Basic Definitions}
+This section provides the basic definitions of various statistical quantities which a particular probability distribution can have.
+
+\begin{enumerate}
+
+	\item{\textbf{Probability Density/Mass Function} : A PDF(PMF, in case of disrete random variables) describes the distribution of the likelihood of the outcome of a Random Variable over it's sample space or support.}
+
+	\item{\textbf{Cumulative Distribution Function} : A CDF describes the probability of the outcome of a Random Variable falling less than a particular value.\\\\Consider A Continuous Random variable $X$, let it's PDF be denoted by $P(.)$, then it's CDF can be written as: 
+\begin{center}$F_X(x)  = P(X \le x)$\end{center}
+
+ Some properties of CDF are: 
+\begin{enumerate}
+
+	\item{$F_X(x)$ is non-decreasing and hence only has jump discontinuities.}
+	\item{$\lim_{x \to \infty} F_X(x) = 1 $ and $\lim_{x \to -\infty} F_X(x) = 0 $}
+	\item{CDF is right continuous, which means that: 
+		\begin{center} $\lim_{h \to 0}F_X(x + h) = F_X(x)$  $\forall x \in \mathbb{R}$ \end{center}}
+	\item{However, CDF is not left continous, but is related to left $\epsilon$ neighborhood by the following:
+		\begin{center} $\lim_{h \to 0}F_X(x - h) = F_X(x) - P(X = x)$ $\forall x \in \mathbb{R}$\end{center}}
+
+\end{enumerate}
+
+}
+
+	\item{\textbf{Expected Value} : This is the probability weighted average of a given random variable $X$. In physical sense, it represents the mean of a large number of independent results of the $X$.
+
+Mathematically, consider a Random Variable $X$ whose support is the set $S_X$, then, two cases arise:
+\begin{enumerate}
+
+	\item{If X is Discrete, then: \begin{center} $$E\left[g(X)\right] = \sum_{x \in S_X} g(x) f_X(x) $$ \end{center}
+			provided,  \begin{center} $$\sum_{x \in S_X} g(x) f_X(x) < \infty$$ \end{center}
+			where $f_X(x)$ is the PMF of DRV $X$.}\\
+
+	\item{If X is Continuous, then: \begin{center} $$E\left[g(X)\right] = \int_{x \in S_X} g(x) f_X(x) dx $$ \end{center}
+			provided,  \begin{center} $$\int_{x \in S_X} g(x) f_X(x) dx< \infty$$ \end{center}
+			}
+	
+
+\end{enumerate}
+	
+}
+
+
+\end{enumerate}
+
+\section{Probability Distributions}
+
+
+%It's Plot (2D/3D depending on the nature)
+%Notation 
+%Parameters
+%Support
+%PDF
+%CDF & it's derivation from PDF
+%Mean(Expectation) & it's derivation
+%Variance & it's derivation
+%Moment Generating Function & it's derivation
+
+\subsection{The Uniform Distribution}
+The distribution describes an experiment where there is an arbitrary outcome that lies between certain bounds $a$ and $b$.\\
+\begin{enumerate}
+	%\item{Insert Image Here}%
+	\item{Notation : $U(a,b)$ or $Unif(a,b)$}
+	\item{Parameters : $-\infty < a < b < \infty$}
+	\item{Support : $x \in [a,b]$}
+	\item{Probability Distribution Function $f_X(.)$ :  \[   
+f_X(x) = 
+     \begin{cases}
+       \text{$\frac{1}{b-a}$,} &\quad \text{$x \in [a,b]$}\\
+       \text{0,} &\quad \text{otherwise}\\
+     \end{cases}
+\]}
+	\item{Cumulative Distribution Function $F_X(.)$ : \\\\ For CDF, one needs to calculate cumulative probability coming up to this point, as shown below:-\\\newpage 
+
+			\begin{center}
+
+					$F_X(x) = \int_{-\infty}^{\infty} f_X(x) dx $
+
+					$F_X(x) = \int_{a}^{b} \frac{1}{b-a} dx $
+
+					$F_X(x) = \begin{cases}
+	\text{0,} &\quad \text{$x < a$}\\
+       \text{$\frac{x}{b-a}$,} &\quad \text{$x \in [a,b]$}\\
+	\text{1,} &\quad \text{$x > b$}
+     \end{cases}$	
+			\end{center}
+
+			 }
+	\item{Expected Value ($\mu$): $\mathbb{E}_X(x) = \mu$ is the probability weighted average of all possible values of Random Variable $X$. It is calculated as shown below:-
+\begin{center}
+			\begin{align*}
+					\mathbb{E}_X(x) &= \int_{-\infty}^{\infty} x f_X(x) dx 
+					\\
+					 &= \int_{a}^{b} x \frac{1}{b-a} dx 
+					\\
+					 &= \frac{1}{b-a} \int_{a}^{b} x dx 
+					\\
+					&= \frac{1}{b-a} \left[ \frac{x^2}{2} \right]_a^b
+					\\
+					&= \frac{b^2 - a^2}{2(b-a)}
+					\\
+					&= \frac{a+b}{2}
+			\end{align*}
+\end{center}
+}\newpage
+	\item{Variance ($\sigma$): This is just the Expected Value of $(X - \mathbb{E}(X))^2$.
+\begin{center}
+			\begin{align*}
+					\sigma^2 &= \mathbb{E}\left( (X - \mathbb{E}(X))^2 \right)
+					\\
+					 &= \mathbb{E}\left( X^2 + \mathbb{E}(X)^2 - 2X\mathbb{E}(X) \right)
+					\\
+					 &= \mathbb{E}( X^2 )+ \mathbb{E}( \mathbb{E}(X)^2 ) -  \mathbb{E}(2X\mathbb{E}(X) )
+					\\
+					&= \frac{b^3 - a^3}{3(b-a)} + \frac{(a+b)^2}{4} - 2\frac{a+b}{2}\left(\frac{a+b}{2}\right)
+					\\
+					&= \frac{(b - a)^2}{12}
+			\end{align*}
+\end{center}
+
+
+}
+	\item{Moment Generating Function ($M_X(t)$): This is the expected value of $e^{tX}$
+\begin{center}
+			\begin{align*}
+				MGF(X) = \mathbb{E}\left( e^{tX} \right) &= \int_{-\infty}^{\infty} e^{tx} f_X(x) dx
+					\\
+					 &= \frac{1}{b-a} \int_a^be^{tx} dx
+					\\
+					 &= \frac{1}{b-a} \left[ \frac{e^{tx}}{t} \right]_a^b
+					\\
+					&= \frac{e^{tb} - e^{ta}}{t(b-a)}
+			\end{align*}
+\end{center}
+
+
+
+
+}
+\end{enumerate}
+
+
+
+%\tableofcontents % create a table of contens 
+
+\end{document}
